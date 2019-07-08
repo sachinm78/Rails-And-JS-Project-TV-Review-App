@@ -3,7 +3,6 @@
 </ul>
 
 <h1>Shows Index</h1>
-<li><%= link_to "Add A New Show", new_show_path %>
 <ol>
     <% @shows.each do |show| %>
     
@@ -17,3 +16,6 @@
     <% end %>
 </ol>
 
+<div id="new-posts"></div>
+
+<li><%= link_to "New Show", new_show_path %>
