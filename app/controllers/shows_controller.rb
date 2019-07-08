@@ -16,8 +16,8 @@ class ShowsController < ApplicationController
         @user = (@user == current_user ? @user : current_user)
         @show.save    
         if @show.save
-            @show.reviews.create(user_id: @user.id)
-            redirect_to user_show_path(@user, @show)
+            @show.reviews.create(show_id: @show.id)
+            redirect_to shows_path(@show)
         else
             render :new
         end
@@ -67,7 +67,7 @@ class ShowsController < ApplicationController
 private
     
     def show_params
-        params.require(:show).permit(:title, :genre)
+        params.require(:show).permit(:user_id, :title, :genre)
     end
     
 end

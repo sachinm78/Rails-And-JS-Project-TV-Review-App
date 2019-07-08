@@ -3,11 +3,11 @@ class ReviewsController < ApplicationController
     
   
     def index
-        special_index
+        @reviews = Review.all
     end
 
     def create
-        @review = Review.create(user_id: current_user.id, shown_id: params[:show_id])
+        @review = Review.create(shown_id: params[:show_id])
         if @review
             redirect_to reviews_path(@review)
         else
@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
 
     def edit
         find_review
-        if current_user.reviews.include?(@review)
+        if show.reviews.include?(@review)
             render :edit
         else 
             redirect_to reviews_path
@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        custom_query
+        find_review
         render :custom_query
     end
 
@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
 private
 
     def review_params
-        params.require(:review).permit(:rating, :comment)
+        params.require(:review).permit(:show_id, :rating, :comment)
     end
 
 end
