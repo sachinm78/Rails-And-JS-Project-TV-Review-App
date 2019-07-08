@@ -1,8 +1,6 @@
-<%# <ul>
-    <li><%= link_to "Your Shows", user_shows_path(@user) %>
-    <%# <li><%= link_to "Add a New Show", new_user_show_path(@user) %>
-    <%# <li><%= link_to "Five Star - Not Rated Shows", custom_query_path %>
-<%# </ul> %>
+<ul>
+    <li><%= link_to "Shows Index", shows_path %>
+</ul>
 
 <h1> Reviews Index</h1>
 
@@ -13,8 +11,6 @@
             <b>Title:</b> <%= review.show.title %>
             <b> - Rating:</b> <%= review.rating %>
             <b> - Comment:</b> <%= review.comment %>
-            <%# <%= link_to "Edit This Review", 
-            edit_review_path(review) %> %>
         </li>
         </br>
     <% end %>
