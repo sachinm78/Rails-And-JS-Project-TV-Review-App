@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Show.create(user_id: 1, title: "Lost", genre: "Sci-Fi")
+Show.create(user_id: 1, title: "Game of Thrones", genre: "Fantasy")
+Show.create(user_id: 1, title: "The Office", genre: "Comedy")
+Show.create(user_id: 1, title: "Big Little Lies", genre: "Drama")
+Show.create(user_id: 1, title: "Planet Earth", genre: "Documentary")
+Show.create(user_id: 1, title: "American Horror Story", genre: "Horror")
+
+Review.create(show_id: 1, rating: 3, comment: "It got boring after season 3.")
+Review.create(show_id: 2, rating: 5, comment: "I love this show, but the final season felt rushed.")
+Review.create(show_id: 3, rating: 4, comment: "I prefer the boss from the British version.")
+Review.create(show_id: 4, rating: 5, comment: "The cast is phenomenal!")
+Review.create(show_id: 5, rating: 5, comment: "Best nature show on TV!")
+Review.create(show_id: 6, rating: 3, comment: "Couldn't get past season 1.")
