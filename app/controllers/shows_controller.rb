@@ -12,9 +12,6 @@ class ShowsController < ApplicationController
 
     def create
         @show = Show.new(show_params)
-        find_user
-        @user = (@user == current_user ? @user : current_user)
-        @show.save    
         if @show.save
             @show.reviews.create(show_id: @show.id)
             redirect_to shows_path(@show)
@@ -26,24 +23,21 @@ class ShowsController < ApplicationController
     def show
         find_show
         @user = current_user
-        # @reviews = current_user.reviews
+        @reviews = show.reviews
     end
 
     def edit
         find_show
         find_user
-        if !@user.shows.include?(@show)
-            redirect_to user_shows_path(current_user)
-        end
     end
 
     def update
         find_show
         @show.update(show_params)
-        find_user
-        @user = (@user == current_user ? @user : current_user)
+        # find_user
+        # @user = (@user == current_user ? @user : current_user)
         if @show.save
-            redirect_to user_show_path(@show)
+            redirect_to show_path(@show)
         else
             render :edit
         end
@@ -53,7 +47,7 @@ class ShowsController < ApplicationController
         @user = current_user
         find_show.destroy
         
-        redirect_to user_shows_path 
+        redirect_to shows_path(@show) 
     end
 
     def find_user
