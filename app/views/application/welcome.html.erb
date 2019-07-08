@@ -1,30 +1,31 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
-<h3>Here is your highest-rated show!</h3>
+<%# <h3>Here is your highest-rated show!</h3>
 <ol>
     <% @user.reviews.five_stars.limit(1).each do |review| %>
-        <li>
+        <%# <li>
             <b>Title:</b> <%= review.show.title %>
-            <b> - Rating:</b> <%= review.rating %>
-            <b> - Comment:</b> <%= review.comment %>
-            <%= link_to "Edit This Review", 
+            <%# <b> - Rating:</b> <%= review.rating %>
+            <%# <b> - Comment:</b> <%= review.comment %>
+            <%# <%= link_to "Edit This Review", 
             edit_review_path(review) %>
-        </li>
+        <%# </li>
         </br>
     <% end %>
-</ol>
-<p>Please select an option from the list.</p>
+<%# </ol>
+<p>Please select an option from the list.</p> %>
 
-<ul>
-    <li><%= link_to "Your Shows", user_shows_path(@user) %></li>
-    <li><%= link_to "Add a New Show", new_user_show_path(@user) %></li>
-    <li><%= link_to "Your Reviews", reviews_path %></li>
-</ul>
+<%# <ul>
+    <li><%= link_to "Your Shows", user_shows_path(@user) %>
+    <%# <li><%= link_to "Add a New Show", new_user_show_path(@user) %>
+    <%# <li><%= link_to "Your Reviews", reviews_path %>
+<%# </ul> %>
 
-<h2>Shows Data Base</h2>
-<ul>
-    <% @shows.each do |show| %>
-        <li><%= show.title %> - <%= show.genre %></li>
-        </br>
+<%# <h2>Shows Data Base</h2>
+<ul> %>
+    <%# <% @shows.each do |show| %>
+        <%# <li><%= show.title %> 
+        <%# - <%= show.genre %>
+        <%# </br>
     <% end %>
-</ul>
+<%# </ul>  %>
