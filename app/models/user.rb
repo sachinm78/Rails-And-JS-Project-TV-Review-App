@@ -2,8 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :validatable, :omniauthable
 
-  has_many :reviews
-  has_many :shows, through: :reviews
+  has_many :shows
   validates :username, :email, :password, presence: true
   validates :username, uniqueness: true
 
